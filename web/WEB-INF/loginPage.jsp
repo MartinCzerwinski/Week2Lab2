@@ -13,11 +13,14 @@
     </head>
     <body>
         <h1>Login</h1>
-        Username:
-        <input type="text" name="username">
-        <br>Password:
-        <input type="text" name="password">
-        <br>
-        <input type="submit" value="Login">
+        <form action="LoginServlet" method="post"> 
+            Username:
+            <input type="text" name="username" value="${username}">
+            <br>Password:
+            <input type="text" name="password" value="${password}">
+            <br>
+            <input type="submit" value="Login">
+        </form>
+        <br>${message}
     </body>
 </html>
