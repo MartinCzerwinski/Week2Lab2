@@ -13,6 +13,7 @@
     </head>
     <body>
         <h1>Main Page</h1>
-        <a href="LoginServlet?loggedout=1">Logout</a>
+        Welcome ${usernameMain}!<br>
+        <a href="MainPage?loggedout=1">Logout</a>
     </body>
 </html>

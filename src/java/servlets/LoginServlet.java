@@ -16,12 +16,6 @@ public class LoginServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException 
     {
-        String loggedout = request.getParameter("loggedout");
-        if(loggedout == "1")
-        {
-            request.setAttribute("message", "Successfully Logged Out");
-            getServletContext().getRequestDispatcher("/WEB-INF/loginPage.jsp").forward(request, response);
-        }
         getServletContext().getRequestDispatcher("/WEB-INF/loginPage.jsp").forward(request, response);
     }
 
@@ -38,8 +32,9 @@ public class LoginServlet extends HttpServlet {
             request.setAttribute("message", "Username and/or Password field cannot be empty");
             getServletContext().getRequestDispatcher("/WEB-INF/loginPage.jsp").forward(request, response);
         }
-        if (userService.login(username, password) == true)
+        if (userService.login(username, password))
         {
+            request.setAttribute("usernameMain", username);
             getServletContext().getRequestDispatcher("/WEB-INF/mainPage.jsp").forward(request, response);
         }
         
